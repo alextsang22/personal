@@ -1,0 +1,19 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <!-- Teal gradient background -->
+  <defs>
+    <linearGradient id="tealGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e"></stop>
+      <stop offset="50%" stop-color="#14b8a6"></stop>
+      <stop offset="100%" stop-color="#0ea5e9"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- Circle background -->
+  <circle cx="512" cy="512" r="512" fill="url(#tealGradient)"></circle>
+
+  <!-- Psi (Ψ) symbol -->
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="central" font-family="Merriweather, 'Times New Roman', serif" font-size="520" fill="white">
+    Ψ
+  </text>
+</svg>
