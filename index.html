@@ -102,13 +102,24 @@
 
         <div class="max-w-6xl mx-auto relative z-10">
             <div class="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-                <!-- Profile Picture Placeholder -->
-                <div class="w-56 h-56 md:w-64 md:h-64 shrink-0 rounded-full bg-white border-8 border-white shadow-soft flex items-center justify-center relative overflow-hidden group">
-                    <!-- Simple Psychology Icon -->
-                    <div class="w-full h-full bg-gradient-to-br from-teal-50 to-slate-50 flex items-center justify-center text-primary/80">
-                        <i class="fas fa-brain text-8xl group-hover:scale-110 transition-transform duration-500"></i>
-                    </div>
-                </div>
+              <!-- Neuro Psychology Avatar -->
+<div class="w-56 h-56 md:w-64 md:h-64 shrink-0 rounded-full bg-white border-8 border-white shadow-soft flex items-center justify-center relative overflow-hidden group neuro-avatar">
+    <div class="w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-primary flex items-center justify-center text-primaryLight relative">
+        
+        <!-- Concentric rings -->
+        <div class="absolute inset-6 rounded-full border border-white/10"></div>
+        <div class="absolute inset-10 rounded-full border border-white/10"></div>
+        
+        <!-- Brain icon -->
+        <i class="fas fa-brain text-7xl md:text-8xl drop-shadow-lg group-hover:scale-105 transition-transform duration-500"></i>
+        
+        <!-- Neural nodes -->
+        <span class="neuro-node node-top-right"></span>
+        <span class="neuro-node node-bottom-left"></span>
+        <span class="neuro-node node-top-left"></span>
+    </div>
+</div>
+
                 
                 <div class="text-center md:text-left flex-1">
                     <div class="inline-flex items-center px-3 py-1 mb-6 text-xs font-bold tracking-widest text-primary uppercase bg-primaryLight rounded-full border border-teal-200">
