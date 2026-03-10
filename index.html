@@ -7,8 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
   :root {
     --ink: #141820;
@@ -90,20 +88,15 @@
   .btn-primary {
     background: var(--dark); color: var(--paper); text-decoration: none;
     padding: 0.65rem 1.5rem; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.05em;
-    border-radius: 2px; transition: background 0.2s, transform 0.15s; border: none; cursor: pointer; font-family: var(--sans);
+    border-radius: 2px; transition: background 0.2s, transform 0.15s;
   }
   .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
   .btn-ghost {
     color: var(--ink); text-decoration: none; padding: 0.65rem 1.5rem;
     font-size: 0.78rem; font-weight: 500; letter-spacing: 0.05em;
     border: 1px solid var(--rule); border-radius: 2px; transition: border-color 0.2s, color 0.2s;
-    background: none; cursor: pointer; font-family: var(--sans);
   }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-
-  /* CV download state */
-  .btn-ghost.loading { opacity: 0.6; cursor: wait; }
-  .btn-ghost.loading::after { content: ' …'; }
 
   /* ── HERO RIGHT ── */
   .hero-right { display: flex; flex-direction: column; align-items: flex-end; gap: 2rem; }
@@ -190,7 +183,6 @@
   .contact-link {
     color: var(--paper); text-decoration: none; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em;
     padding: 0.65rem 1.5rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 2px; transition: background 0.2s, border-color 0.2s;
-    background: none; cursor: pointer; font-family: var(--sans);
   }
   .contact-link:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); }
   .contact-link.primary { background: var(--accent); border-color: var(--accent); }
@@ -202,15 +194,6 @@
     display: flex; align-items: center; justify-content: space-between;
     font-size: 0.72rem; color: rgba(248,246,241,0.3); flex-wrap: wrap; gap: 0.5rem;
   }
-
-  /* ── TOAST ── */
-  #toast {
-    position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(4rem);
-    background: var(--dark); color: var(--paper); padding: 0.75rem 1.5rem;
-    border-radius: 4px; font-size: 0.78rem; z-index: 9999;
-    transition: transform 0.3s ease, opacity 0.3s ease; opacity: 0; pointer-events: none;
-  }
-  #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
@@ -229,7 +212,6 @@
 <body>
 
 <div id="progress-bar"></div>
-<div id="toast"></div>
 
 <!-- NAV -->
 <nav>
@@ -262,7 +244,8 @@
     <div class="hero-actions">
       <a href="mailto:alextsang22@icloud.com" class="btn-primary">Get in Touch</a>
       <a href="https://orcid.org/0000-0003-2919-1587" class="btn-ghost" target="_blank">ORCID ↗</a>
-      <button class="btn-ghost" onclick="downloadCVasPDF(this)">Download CV (PDF)</button>
+      <a href="https://alextsang22.github.io/Tsang%20Pak%20Lik%20(Alex)'s%20CV%20v12.5.docx"
+         class="btn-ghost" download="Tsang Pak Lik (Alex)'s CV v12.5.docx">Download CV</a>
     </div>
   </div>
   <div class="hero-right">
@@ -356,7 +339,6 @@
           <p>School of Nursing PolyU · THEi · HKSYU · EdUHK · APSS PolyU · HKIAPS CUHK · The Chinese YMCA of HK</p>
         </div>
       </div>
-
       <h3 class="sub">Academic Qualifications</h3>
       <div class="timeline-item">
         <div class="timeline-year">2019 – 2024</div>
@@ -404,7 +386,6 @@
         <div class="timeline-year">2018 – 2019</div>
         <div class="timeline-content"><h4>Member</h4><p>American Psychological Association</p></div>
       </div>
-
       <h3 class="sub">Awards &amp; Honours</h3>
       <div class="timeline-item">
         <div class="timeline-year">2023/24</div>
@@ -444,27 +425,27 @@
     <span class="pub-status submitted">Submitted</span>
   </div>
   <div class="pub-item">
-    <p>Yu, C. T. K., <strong>Tsang, A. P. L.*</strong>, Chan, K. K. Y., et al. (Submitted). Using a virtual reality CAVE–based mindfulness intervention to promote mental well-being in adolescents with anxiety symptoms: A feasibility study. <em>JMIR Formative Research</em>.</p>
+    <p>Yu, C. T. K., <strong>Tsang, A. P. L.*</strong>, Chan, K. K. Y., Fung, I. O. C., Ngai, Z. S. Y., Kwok, L. Y. C., Chan, S. K. S., Fung, G. T. F., Law, S. S. Y., Ching, V. W. K., &amp; Kor, P. P. K. (Submitted). Using a virtual reality CAVE–based mindfulness intervention to promote mental well-being in adolescents with anxiety symptoms: A feasibility study. <em>JMIR Formative Research</em>.</p>
     <span class="pub-status submitted">Submitted</span>
   </div>
   <div class="pub-item">
-    <p>Kor, P. P. K., Leung, A. Y. M., Leung, D. Y. P., Cheung, D. S. K., Wang, S. S., <strong>Tsang, A. P. L.</strong>, et al. (Submitted). Exploring patterns of supportive services utilization among informal caregivers of older adults: A multi-method study. <em>Journal of Applied Gerontology</em>.</p>
+    <p>Kor, P. P. K., Leung, A. Y. M., Leung, D. Y. P., Cheung, D. S. K., Wang, S. S., <strong>Tsang, A. P. L.</strong>, Lai, D. W. L., &amp; Molassiotis, A. (Submitted). Exploring patterns of supportive services utilization among informal caregivers of older adults: A multi-method study. <em>Journal of Applied Gerontology</em>.</p>
     <span class="pub-status submitted">Submitted</span>
   </div>
   <div class="pub-item">
-    <p>Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Chu, A. M. Y., et al. (Submitted). Exploring receptivity in a mindfulness intervention for dementia carers: A micro-randomized trial. <em>JMIR</em>.</p>
+    <p>Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Chu, A. M. Y., Cheung, D. S. K., Zarit, S. H., Xie, H., Qian, M., Tan, K. C., Zheng, Y., &amp; Chou, K. L. (Submitted). Exploring receptivity in a mindfulness intervention for dementia carers: A micro-randomized trial. <em>JMIR</em>.</p>
     <span class="pub-status submitted">Submitted</span>
   </div>
   <div class="pub-item">
-    <p>Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Liu, J. Y. W., et al. (Submitted). Cultural engagement and cognitive change over 18 years in the English Longitudinal Study of Ageing. <em>Innovation in Aging</em>.</p>
+    <p>Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Liu, J. Y. W., Montayre, J., Leung, A. Y. M., Zhao, I. Y., Wang, S., Scholes, S., &amp; Mak, H. W. (Submitted). Cultural engagement and cognitive change over 18 years in the English Longitudinal Study of Ageing. <em>Innovation in Aging</em>.</p>
     <span class="pub-status submitted">Submitted</span>
   </div>
   <div class="pub-item">
-    <p>Tan, L. H. Z., <strong>Tsang, A. P. L.</strong>, Liu, X., et al. (Submitted). Effects of virtual reality-based horticultural activities on physical and psychological outcomes of older adults: A scoping review. <em>JMIR Aging</em>.</p>
+    <p>Tan, L. H. Z., <strong>Tsang, A. P. L.</strong>, Liu, X., Tse, W. S., Hui, Y. T., Chan, C., Chan, H. K., Lam, P., To, M. H., Chan, Y. K., Fong, W. Y., Yeng, S. H., Sari, D. W., Takaoka, M., Igarashi, A., &amp; Kor, P. P. K. (Submitted). Effects of virtual reality-based horticultural activities on physical and psychological outcomes of older adults: A scoping review. <em>JMIR Aging</em>.</p>
     <span class="pub-status submitted">Submitted</span>
   </div>
   <div class="pub-item">
-    <p>Kor, P. P. K., Chan, K., <strong>Tsang, A. P. L.</strong>, et al. (Submitted). Comparing AI-assisted and facilitator-led debriefing in immersive VR simulation in nursing education: A quasi-experimental study. <em>Nurse Education Today</em>.</p>
+    <p>Kor, P. P. K., Chan, K., <strong>Tsang, A. P. L.</strong>, Liu, J. Y. W., Cheung, K., Lai, T. K. H., Cheung, E. S. P., Tan, L. H. Z., &amp; He, H. C. (Submitted). Comparing the effects of AI-assisted and facilitator-led debriefing on knowledge and non-technical skills in immersive virtual reality simulation in nursing education: A quasi-experimental study. <em>Nurse Education Today</em>.</p>
     <span class="pub-status submitted">Submitted</span>
   </div>
   <div class="pub-item">
@@ -472,14 +453,14 @@
     <span class="pub-status review">Under Review</span>
   </div>
   <div class="pub-item">
-    <p>Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Cheung, D. S. K., et al. (Under review). Developing and testing a brief mindfulness just-in-time adaptive intervention to reduce stress among dementia caregivers. <em>JMIR Aging</em>.</p>
+    <p>Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Cheung, D. S. K., Zarit, S. H., Xie, H., Qian, M., Tan, K. C., Zhen, Y., Chu, A. M. Y., &amp; Chou, K. L. (Under review). Developing and testing a brief mindfulness just-in-time adaptive intervention to reduce stress among dementia caregivers: A quasi-experimental study. <em>JMIR Aging</em>.</p>
     <span class="pub-status review">Under Review</span>
   </div>
 
   <div class="pub-section-title">Published</div>
 
   <div class="pub-item">
-    <p>Chan, S. C. Y., Huang, Q. L., <strong>Tsang, A. P. L.</strong>, et al. (2025). Online single-session intervention to foster connection in older adults: Pilot trial. <em>Research on Social Work Practice</em>, 1–12.</p>
+    <p>Chan, S. C. Y., Huang, Q. L., <strong>Tsang, A. P. L.</strong>, Ho, W. S., Chan, R., Wong, S., &amp; Tsai, M. (2025). Online single-session intervention to foster connection in older adults: Pilot trial. <em>Research on Social Work Practice</em>, 1–12.</p>
     <a href="https://doi.org/10.1177/10497315251404932" class="pub-doi" target="_blank">DOI ↗</a>
   </div>
   <div class="pub-item">
@@ -487,7 +468,7 @@
     <a href="https://doi.org/10.1093/geront/gnaf281" class="pub-doi" target="_blank">DOI ↗</a>
   </div>
   <div class="pub-item">
-    <p>Kor, P. P. K., Tan, H., <strong>Tsang, A. P. L.</strong>, et al. (2025). Student experiences and learning outcomes of an interprofessional and international service-learning program. <em>BMC Medical Education</em>, 25, 1539.</p>
+    <p>Kor, P. P. K., Tan, H., <strong>Tsang, A. P. L.</strong>, Cheung, K., Cheung, S. P., Montayre, J. R. G., Ko, K. Y., Triastuti, I. A., Widagdo, T. M. M., Prasetyo, Y. C., Amnatsatsue, K., &amp; Kittiteerasack, P. (2025). Student experiences and learning outcomes of an interprofessional and international service-learning program: An exploratory study. <em>BMC Medical Education</em>, 25, 1539.</p>
     <a href="https://doi.org/10.1186/s12909-025-07970-6" class="pub-doi" target="_blank">DOI ↗</a>
   </div>
   <div class="pub-item">
@@ -495,7 +476,7 @@
     <a href="https://doi.org/10.1159/000549061" class="pub-doi" target="_blank">DOI ↗</a>
   </div>
   <div class="pub-item">
-    <p>Kor, P. P. K., Chou, K. L., <strong>Tsang, A. P. L.</strong>, et al. (2025). Effects of a closed-loop mindfulness-based program for reducing stress in family caregivers of people with dementia: A study protocol. <em>BMC Psychology</em>, 13, 681.</p>
+    <p>Kor, P. P. K., Chou, K. L., <strong>Tsang, A. P. L.</strong>, Mak, W. W. S., Galante, J., Ho, R. T. H., Wong, S. Y. S., Cheung, D. S. K., Liu, J. Y. W., &amp; Zarit, S. H. (2025). Effects of a closed-loop mindfulness-based program for reducing stress in family caregivers of people with dementia: A study protocol of a randomized controlled trial. <em>BMC Psychology</em>, 13, 681.</p>
     <a href="https://doi.org/10.1186/s40359-025-02919-2" class="pub-doi" target="_blank">DOI ↗</a>
   </div>
   <div class="pub-item">
@@ -503,7 +484,7 @@
     <a href="https://doi.org/10.1080/13607863.2025.2515177" class="pub-doi" target="_blank">DOI ↗</a>
   </div>
   <div class="pub-item">
-    <p>Kor, P. P. K., Liu, J. Y. W., Wong, A. K. C., <strong>Tsang, A. P. L.</strong>, et al. (2025). Effectiveness of a dyadic technology-enhanced home-based horticultural therapy on psychosocial well-being among people with dementia and their family caregivers. <em>JMIR Aging</em>, 8, e66017.</p>
+    <p>Kor, P. P. K., Liu, J. Y. W., Wong, A. K. C., <strong>Tsang, A. P. L.</strong>, Tan, H. Z., Cheung, D. S. K., Leung, H. K. W., &amp; Wong, F. K. Y. (2025). Effectiveness of a dyadic technology–enhanced home-based horticultural therapy on psychosocial well-being among people with dementia and their family caregivers: Multimethods pilot study. <em>JMIR Aging</em>, 8, e66017.</p>
     <a href="https://doi.org/10.2196/66017" class="pub-doi" target="_blank">DOI ↗</a>
   </div>
   <div class="pub-item">
@@ -511,11 +492,11 @@
     <a href="https://doi.org/10.1177/07334648241282756" class="pub-doi" target="_blank">DOI ↗</a>
   </div>
   <div class="pub-item">
-    <p>Kor, P. P. K., Chou, K. L., Zarit, S. H., et al., <strong>Tsang, A. P. L.</strong>, et al. (2024). Effect of a single-session mindfulness-based intervention for reducing stress in family caregivers of people with dementia: Study protocol. <em>BMC Psychology</em>, 12, 582.</p>
+    <p>Kor, P. P. K., Chou, K. L., Zarit, S. H., Galante, J., Chan, W. C., <strong>Tsang, A. P. L.</strong>, Lai, D. L. L., Cheung, D. S. K., Ho, K. H. M., &amp; Liu, J. Y. W. (2024). Effect of a single-session mindfulness-based intervention for reducing stress in family caregivers of people with dementia: Study protocol for a randomized controlled trial. <em>BMC Psychology</em>, 12, 582.</p>
     <a href="https://doi.org/10.1186/s40359-024-02027-7" class="pub-doi" target="_blank">DOI ↗</a>
   </div>
   <div class="pub-item">
-    <p>Kor, P. P. K., Yu, C. T. K., Li, Y., <strong>Tsang, A. P. L.</strong>, et al. (2024). Development and validation of a health literacy scale for family caregivers of older people with chronic illness. <em>BMC Nursing</em>, 23, 447.</p>
+    <p>Kor, P. P. K., Yu, C. T. K., Li, Y., <strong>Tsang, A. P. L.</strong>, Tan, L. H. Z., Lam, S. C., Lee, P. H., Liu, J. Y. W., Leung, A. Y. M., &amp; Lee, K. C. (2024). Development and validation of a health literacy scale for family caregivers of older people with chronic illness. <em>BMC Nursing</em>, 23, 447.</p>
     <a href="https://doi.org/10.1186/s12912-024-02057-x" class="pub-doi" target="_blank">DOI ↗</a>
   </div>
   <div class="pub-item">
@@ -574,7 +555,8 @@
   <div class="contact-links">
     <a href="mailto:alextsang22@icloud.com" class="contact-link primary">alextsang22@icloud.com</a>
     <a href="https://orcid.org/0000-0003-2919-1587" class="contact-link" target="_blank">ORCID Profile</a>
-    <button class="contact-link" onclick="downloadCVasPDF(this)">Download CV (PDF)</button>
+    <a href="https://alextsang22.github.io/Tsang%20Pak%20Lik%20(Alex)'s%20CV%20v12.5.docx"
+       class="contact-link" download="Tsang Pak Lik (Alex)'s CV v12.5.docx">Download CV</a>
   </div>
 </section>
 
@@ -584,75 +566,10 @@
 </footer>
 
 <script>
-  // ── SCROLL PROGRESS ──
   window.addEventListener('scroll', () => {
     const p = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
     document.getElementById('progress-bar').style.width = p + '%';
   });
-
-  // ── TOAST HELPER ──
-  function showToast(msg, duration = 3500) {
-    const t = document.getElementById('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), duration);
-  }
-
-  // ── DOCX → PDF DOWNLOAD ──
-  const CV_DOCX_URL = "https://alextsang22.github.io/Tsang%20Pak%20Lik%20(Alex)'s%20CV%20v12.5.docx";
-
-  async function downloadCVasPDF(btn) {
-    if (btn.classList.contains('loading')) return;
-    btn.classList.add('loading');
-    const originalText = btn.textContent;
-    btn.textContent = 'Generating PDF…';
-    showToast('Fetching CV — this may take a moment…', 8000);
-
-    try {
-      // 1. Fetch the DOCX as ArrayBuffer
-      const response = await fetch(CV_DOCX_URL);
-      if (!response.ok) throw new Error('Could not fetch CV file.');
-      const arrayBuffer = await response.arrayBuffer();
-
-      // 2. Convert DOCX → HTML using mammoth
-      const result = await mammoth.convertToHtml({ arrayBuffer });
-      const html = result.value;
-
-      // 3. Build a styled container for PDF rendering
-      const container = document.createElement('div');
-      container.style.cssText = [
-        'font-family: Georgia, serif',
-        'font-size: 11pt',
-        'line-height: 1.5',
-        'color: #111',
-        'padding: 2cm',
-        'max-width: 800px',
-        'margin: 0 auto'
-      ].join(';');
-      container.innerHTML = html;
-      document.body.appendChild(container);
-
-      // 4. html2pdf options
-      const opt = {
-        margin:       [10, 15, 10, 15],
-        filename:     'Alex_Tsang_CV.pdf',
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2, useCORS: true },
-        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      };
-
-      await html2pdf().set(opt).from(container).save();
-      document.body.removeChild(container);
-      showToast('PDF downloaded successfully.');
-
-    } catch (err) {
-      console.error(err);
-      showToast('Could not generate PDF — try again or check your connection.');
-    } finally {
-      btn.classList.remove('loading');
-      btn.textContent = originalText;
-    }
-  }
 </script>
 </body>
 </html>
