@@ -1,308 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alex Pak Lik Tsang</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: Georgia, "Times New Roman", serif; }
-    .sans { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alex Pak Lik Tsang</title>
+<meta name="description" content="Alex Pak Lik Tsang — Postdoctoral Fellow in cognitive psychology, gerontology, and applied health science at The Hong Kong Polytechnic University." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F3F2; --panel:#EAEAE8; --panel2:#E5E5E3; --card:#FAFAFA;
+  --ink:#202124; --body:#494A4D; --muted:#74757A; --faint:#9B9CA0;
+  --rule:#E0E0DE; --rule2:#D1D1CF;
+  --accent:#54565B; --accent-deep:#34363A;
+  --maxw:1180px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{margin:0;background:var(--paper);color:var(--body);
+  font-family:"Hanken Grotesk",system-ui,-apple-system,sans-serif;font-size:16.5px;line-height:1.72;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;position:relative;}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.028;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='0.5'/></svg>");}
+.serif{font-family:"Newsreader",Georgia,serif;}
+.italic{font-style:italic;}
+a{color:inherit;}
+img{max-width:100%;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.3rem,5vw,4rem);}
+::selection{background:var(--accent);color:#fff;}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--accent-deep);outline-offset:3px;border-radius:2px;}
+
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);padding:.6rem 1rem;font-size:.8rem;z-index:100;}
+.skip:focus{left:.5rem;top:.5rem;}
+
+/* header */
+header.site{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--paper) 84%,transparent);
+  backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--rule);}
+.site .bar{display:flex;align-items:center;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:.9rem clamp(1.3rem,5vw,4rem);}
+.site .mark{font-family:"Newsreader",serif;font-weight:500;font-size:1.28rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em;}
+.site .mark{color:var(--ink);}
+.site nav{display:none;gap:1.9rem;align-items:center;}
+.site nav a{font-size:.82rem;font-weight:600;letter-spacing:.02em;color:var(--muted);text-decoration:none;transition:color .2s;position:relative;}
+.site nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:1.5px;background:var(--accent);transition:right .25s ease;}
+.site nav a:hover{color:var(--ink);}
+.site nav a:hover::after{right:0;}
+@media(min-width:880px){.site nav{display:flex;}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(4rem,10vw,7.5rem) 0 clamp(3rem,6vw,5rem);}
+.hero .wrap{position:relative;}
+.kicker{font-family:"Newsreader",serif;font-style:italic;font-size:1.02rem;color:var(--accent-deep);display:flex;align-items:center;gap:.7rem;}
+.kicker::before{content:"";width:2rem;height:1.5px;background:var(--accent);display:inline-block;flex:none;}
+h1.name{font-family:"Newsreader",serif;font-weight:400;font-size:clamp(3rem,10.5vw,7.7rem);line-height:.96;
+  letter-spacing:-.02em;color:var(--ink);margin:1.3rem 0 0;}
+h1.name{color:var(--ink);}
+.dek{font-family:"Newsreader",serif;font-size:clamp(1.15rem,2.2vw,1.5rem);line-height:1.5;color:var(--body);
+  max-width:40ch;margin:1.5rem 0 0;font-weight:300;}
+.credlist{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.7rem;}
+.credlist span{background:var(--card);border:1px solid var(--rule);border-radius:999px;padding:.4rem .95rem;font-size:.78rem;
+  font-weight:600;color:var(--body);}
+.actions{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2rem;}
+.btn{font-size:.9rem;font-weight:600;text-decoration:none;padding:.75rem 1.5rem;border-radius:999px;
+  border:1.5px solid var(--ink);color:var(--ink);transition:all .2s;}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+.btn.primary:hover{background:var(--accent-deep);border-color:var(--accent-deep);}
+.btn.ghost:hover{background:var(--ink);color:var(--paper);}
+
+.bynum{display:flex;flex-wrap:wrap;gap:1.1rem;margin-top:2.6rem;}
+.bynum .b{flex:1;min-width:130px;background:var(--card);border:1px solid var(--rule);
+  border-radius:12px;padding:1rem 1.25rem;}
+.bynum .n{font-family:"Newsreader",serif;font-size:2.3rem;font-weight:400;color:var(--ink);line-height:1;}
+.bynum .l{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:.35rem;}
+
+/* section shell */
+.band{border-top:1px solid var(--rule);}
+.band.panel{background:var(--panel);}
+.band.panel2{background:var(--panel2);}
+.band .wrap{padding-top:clamp(3.4rem,7vw,5.5rem);padding-bottom:clamp(3.4rem,7vw,5.5rem);}
+.sechead{margin-bottom:2.2rem;}
+.seckicker{font-family:"Newsreader",serif;font-style:italic;font-size:1.05rem;color:var(--accent-deep);}
+.sectitle{font-family:"Newsreader",serif;font-weight:400;font-size:clamp(2rem,4vw,3.1rem);line-height:1.05;
+  letter-spacing:-.015em;color:var(--ink);margin:.3rem 0 0;max-width:22ch;}
+.lede{font-size:1.1rem;line-height:1.75;color:var(--body);max-width:64ch;margin:1.5rem 0 0;}
+.lede::first-letter{font-family:"Newsreader",serif;font-size:3.3em;line-height:.8;float:left;font-weight:500;
+  color:var(--accent);padding:.06em .12em 0 0;}
+
+/* research cards */
+.areagrid{display:grid;gap:1.1rem;margin-top:2.4rem;}
+@media(min-width:600px){.areagrid{grid-template-columns:1fr 1fr;}}
+@media(min-width:1040px){.areagrid{grid-template-columns:1fr 1fr 1fr;}}
+.acard{background:var(--card);border:1px solid var(--rule);border-radius:14px;
+  padding:1.4rem 1.5rem;box-shadow:0 1px 2px rgba(70,50,25,.03);}
+.acard h3{font-family:"Newsreader",serif;font-weight:500;font-size:1.2rem;color:var(--ink);margin:0 0 .5rem;letter-spacing:-.01em;}
+.acard p{margin:0;font-size:.9rem;line-height:1.65;color:var(--muted);}
+
+/* cv */
+.cvcols{display:grid;gap:2.6rem;}
+@media(min-width:760px){.cvcols{grid-template-columns:1fr 1fr;gap:3rem;}}
+.cvgroup+.cvgroup{margin-top:2.4rem;}
+.cvgroup h3,.subh{font-family:"Newsreader",serif;font-weight:500;font-size:1.4rem;color:var(--ink);margin:0 0 .5rem;letter-spacing:-.01em;}
+.cvrow{display:grid;gap:.15rem;padding:1rem 0;border-top:1px solid var(--rule2);}
+@media(min-width:480px){.cvrow{grid-template-columns:7.5rem 1fr;gap:1.2rem;}}
+.cvrow .date{font-style:italic;font-family:"Newsreader",serif;font-size:.9rem;color:var(--muted);padding-top:.1rem;}
+.cvrow .t{font-weight:700;color:var(--ink);font-size:.96rem;line-height:1.4;}
+.cvrow .o{color:var(--muted);font-size:.88rem;line-height:1.55;margin-top:.12rem;}
+.cvrow .tag{display:inline-block;background:transparent;color:var(--accent-deep);border:1px solid var(--rule2);
+  border-radius:999px;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .65rem;margin-top:.55rem;}
+
+/* publications */
+.pubgroup+.pubgroup{margin-top:2.4rem;}
+.pubbar{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin:0 0 1rem;}
+.pubbar h3{font-family:"Newsreader",serif;font-weight:500;font-size:1.5rem;color:var(--ink);margin:0;letter-spacing:-.01em;}
+.pubbar .count{font-style:italic;font-family:"Newsreader",serif;font-size:.95rem;color:var(--muted);white-space:nowrap;}
+.pubpanel{background:var(--card);border:1px solid var(--rule);border-radius:18px;padding:.35rem 1.6rem;
+  box-shadow:0 1px 2px rgba(70,50,25,.03);}
+.pub{display:grid;gap:.6rem;padding:1.15rem 0;border-top:1px solid var(--rule2);}
+.pubpanel .pub:first-child{border-top:none;}
+@media(min-width:720px){.pub{grid-template-columns:1fr auto;align-items:start;gap:1.6rem;}}
+.pub p{margin:0;font-size:.94rem;line-height:1.68;color:var(--body);}
+.pub p strong{color:var(--ink);font-weight:700;}
+.pub p em{font-style:italic;font-family:"Newsreader",serif;color:var(--muted);font-size:1.02em;}
+.pill{border-radius:999px;font-size:.65rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  padding:.28rem .7rem;white-space:nowrap;align-self:start;text-decoration:none;display:inline-block;
+  background:transparent;border:1px solid var(--rule2);color:var(--muted);}
+.pill.doi{border-color:var(--accent);color:var(--accent-deep);transition:background .2s,color .2s;}
+.pill.doi:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.pubnote{font-style:italic;font-family:"Newsreader",serif;color:var(--muted);margin:0 0 1.6rem;font-size:.98rem;}
+
+/* grants */
+.grantgrid{display:grid;gap:1.1rem;}
+@media(min-width:720px){.grantgrid{grid-template-columns:1fr 1fr 1fr;}}
+.gcard{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:1.6rem;display:flex;flex-direction:column;
+  box-shadow:0 1px 2px rgba(70,50,25,.03);}
+.gcard .amt{font-family:"Newsreader",serif;font-weight:400;font-size:1.75rem;color:var(--accent-deep);line-height:1;}
+.gcard .gt{color:var(--ink);font-weight:700;font-size:1rem;line-height:1.4;margin-top:.9rem;}
+.gcard .gm{color:var(--muted);font-size:.83rem;line-height:1.55;margin-top:.55rem;}
+.gcard .role{margin-top:auto;padding-top:1rem;}
+.gcard .role span{display:inline-block;background:transparent;color:var(--muted);border:1px solid var(--rule2);
+  border-radius:999px;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.24rem .7rem;}
+
+/* media & service */
+.ms{display:grid;gap:2.6rem;}
+@media(min-width:820px){.ms{grid-template-columns:1fr 1fr;gap:3rem;}}
+.mcard{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:.4rem 1.5rem;
+  box-shadow:0 1px 2px rgba(70,50,25,.03);}
+.mediaitem{padding:1.15rem 0;border-top:1px solid var(--rule2);}
+.mcard .mediaitem:first-child{border-top:none;}
+.mediaitem a{color:var(--ink);text-decoration:none;font-weight:700;font-size:.95rem;line-height:1.5;
+  border-bottom:1.5px solid var(--rule2);transition:color .2s,border-color .2s;}
+.mediaitem a:hover{color:var(--accent-deep);border-color:var(--accent);}
+.mediaitem .src{font-style:italic;font-family:"Newsreader",serif;font-size:.85rem;color:var(--muted);margin-top:.4rem;}
+.reviewers{color:var(--body);font-size:.92rem;line-height:1.95;}
+.reviewers .sep{color:var(--faint);padding:0 .3rem;}
+
+/* contact (light, minimal) */
+.contact{background:var(--panel);border-top:1px solid var(--rule);}
+.contact .seckicker{color:var(--accent-deep);}
+.contact .sectitle{color:var(--ink);max-width:16ch;font-size:clamp(2.3rem,5vw,3.6rem);}
+.contact .copy{max-width:56ch;color:var(--body);font-size:1.06rem;margin:1.3rem 0 2.1rem;}
+
+/* footer */
+footer.site{border-top:1px solid var(--rule);background:var(--paper);}
+footer .row{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;justify-content:space-between;
+  font-size:.76rem;letter-spacing:.02em;color:var(--muted);max-width:var(--maxw);margin:0 auto;padding:1.7rem clamp(1.3rem,5vw,4rem);}
+footer .row .serif{font-style:italic;}
+
+/* motion */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1);}
+.reveal.in{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1 !important;transform:none !important;transition:none !important;}html{scroll-behavior:auto;}}
+</style>
 </head>
-<body class="min-h-screen bg-stone-50 text-slate-900">
-  <header class="sticky top-0 z-50 border-b border-stone-200/80 bg-stone-50/90 backdrop-blur">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-      <a href="#hero" class="text-xl text-slate-900">Alex P.L. Tsang</a>
-      <nav class="sans hidden gap-8 text-xs font-medium uppercase tracking-[0.14em] text-slate-600 md:flex">
-        <a href="#research" class="transition hover:text-emerald-700">Research</a>
-        <a href="#history" class="transition hover:text-emerald-700">CV</a>
-        <a href="#publications" class="transition hover:text-emerald-700">Publications</a>
-        <a href="#grants" class="transition hover:text-emerald-700">Grants</a>
-        <a href="#contact" class="rounded-md bg-slate-900 px-3 py-2 text-stone-50 transition hover:bg-emerald-700">Contact</a>
-      </nav>
+<body>
+<a class="skip" href="#research">Skip to content</a>
+<header class="site">
+  <div class="bar">
+    <a class="mark" href="#top">Alex P.&#8202;L. Tsang</a>
+    <nav>
+      <a href="#research">Research</a>
+      <a href="#cv">CV</a>
+      <a href="#publications">Publications</a>
+      <a href="#grants">Grants</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="top" class="hero">
+  <div class="wrap">
+    <div class="kicker">Postdoctoral Fellow · School of Nursing, PolyU</div>
+    <h1 class="name">Alex Pak Lik Tsang</h1>
+    <p class="dek">Cognitive psychology, gerontology, and applied health science in the service of ageing well.</p>
+    <div class="credlist"><span>Cognitive Psychology</span><span>Gerontology</span><span>Dementia Care</span><span>Digital Health</span><span>RCT &amp; SMART Design</span></div>
+    <div class="actions">
+      <a class="btn primary" href="mailto:alextsang22@icloud.com">Get in touch</a>
+      <a class="btn ghost" href="https://orcid.org/0000-0003-2919-1587" target="_blank" rel="noopener noreferrer">ORCID profile</a>
     </div>
-  </header>
-
-  <main>
-    <section id="hero" class="mx-auto grid min-h-screen max-w-7xl gap-14 px-6 pb-20 pt-28 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:pt-32">
-      <div class="self-center">
-        <div class="sans mb-6 flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
-          <span class="h-px w-10 bg-emerald-700"></span>
-          Postdoctoral Fellow · School of Nursing, PolyU
-        </div>
-        <h1 class="text-6xl font-light leading-none tracking-tight text-slate-950 md:text-7xl lg:text-8xl">
-          Alex Pak Lik <span class="italic">TSANG</span>
-        </h1>
-        <p class="sans mt-6 text-sm leading-7 text-slate-500 md:text-base">
-          PhD (PolyU) · CPsychol &amp; Associate Fellow (BPS) · Registered Psychologist (HKPS) · MHKPS<br>
-          The Hong Kong Polytechnic University
-        </p>
-        <div class="sans mt-8 flex flex-wrap gap-2">
-          <span class="rounded-md border border-stone-300 bg-white px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-slate-600">Cognitive Psychology</span>
-          <span class="rounded-md border border-stone-300 bg-white px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-slate-600">Gerontology</span>
-          <span class="rounded-md border border-stone-300 bg-white px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-slate-600">Dementia Care</span>
-          <span class="rounded-md border border-stone-300 bg-white px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-slate-600">Digital Health</span>
-          <span class="rounded-md border border-stone-300 bg-white px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-slate-600">RCT &amp; SMART Design</span>
-        </div>
-        <div class="sans mt-8 flex flex-wrap gap-3">
-          <a href="mailto:alextsang22@icloud.com" class="rounded-xl bg-slate-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-emerald-700">Get in Touch</a>
-          <a href="https://orcid.org/0000-0003-2919-1587" class="rounded-xl border border-stone-300 bg-white px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-emerald-700 hover:text-emerald-700">ORCID ↗</a>
-          <a href="https://alextsang22.github.io/personal/Tsang%20Pak%20Lik%20(Alex)%27s%20CV%20v12.5.docx" class="rounded-xl border border-stone-300 bg-white px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-emerald-700 hover:text-emerald-700">Download CV</a>
-        </div>
-      </div>
-
-      <div class="self-end lg:pb-16">
-        <div class="overflow-hidden rounded-[28px] border border-stone-200 bg-white shadow-sm">
-          <div class="grid grid-cols-3">
-            <div class="border-l-0 border-stone-200 px-6 py-6">
-              <div class="text-4xl text-slate-900">18</div>
-              <div class="sans mt-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Publications</div>
-            </div>
-            <div class="border-l border-stone-200 px-6 py-6">
-              <div class="text-4xl text-slate-900">6</div>
-              <div class="sans mt-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">H-Index</div>
-            </div>
-            <div class="border-l border-stone-200 px-6 py-6">
-              <div class="text-4xl text-slate-900">205</div>
-              <div class="sans mt-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Citations</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="research" class="bg-slate-950 text-white">
-      <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
-        <div class="sans mb-8 flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-300">
-          <span>Research Focus</span>
-          <span class="h-px flex-1 bg-white/10"></span>
-        </div>
-        <h2 class="text-4xl font-light leading-tight md:text-5xl">
-          Bridging behavioural<br>
-          <em>science and health practice</em>
-        </h2>
-        <p class="sans mt-6 max-w-3xl text-base leading-8 text-white/65">
-          Chartered Psychologist specialising in cognitive psychology, gerontology, and health-related applied social science.
+    <div class="bynum"><div class="b"><div class="n">18</div><div class="l">Publications</div></div><div class="b"><div class="n">6</div><div class="l">H-Index</div></div><div class="b"><div class="n">218</div><div class="l">Citations</div></div></div>
+  </div>
+</section>
+<section id="research" class="band">
+  <div class="wrap reveal">
+    <div class="sechead"><div class="seckicker">Research focus</div><h2 class="sectitle">A programme spanning behaviour and population health</h2></div>
+      <p class="lede">Chartered Psychologist specialising in cognitive psychology, gerontology, and health-related applied social science.
           My work spans micro-level behavioural intervention research — RCTs, feasibility trials, MRTs — through to macro-level
-          population health using large longitudinal cohorts and advanced quantitative methods.
-        </p>
-
-        <div class="mt-12 rounded-[28px] border border-white/10 bg-white/5 px-6 py-3 md:px-8">
-          <div class="grid gap-3 border-b border-white/10 py-5 md:grid-cols-[56px_1.2fr_2fr] md:gap-6">
-            <div class="text-base text-emerald-300">01</div>
-            <div class="text-2xl font-light text-white/90">Ageing, Dementia &amp; Caregiving</div>
-            <div class="sans text-sm leading-7 text-white/55">Stress, wellbeing, dyadic processes, behavioural and psychological symptoms of dementia, and evidence-based caregiver support programs.</div>
-          </div>
-          <div class="grid gap-3 border-b border-white/10 py-5 md:grid-cols-[56px_1.2fr_2fr] md:gap-6">
-            <div class="text-base text-emerald-300">02</div>
-            <div class="text-2xl font-light text-white/90">Intervention Development &amp; Evaluation</div>
-            <div class="sans text-sm leading-7 text-white/55">Randomized controlled trials, feasibility and pilot studies, micro-randomized trials (MRTs), JITAIs, SMART designs, and hybrid effectiveness–implementation designs.</div>
-          </div>
-          <div class="grid gap-3 border-b border-white/10 py-5 md:grid-cols-[56px_1.2fr_2fr] md:gap-6">
-            <div class="text-base text-emerald-300">03</div>
-            <div class="text-2xl font-light text-white/90">Technology-Enabled Mental Health</div>
-            <div class="sans text-sm leading-7 text-white/55">Immersive virtual reality, VR-based mindfulness, digital mindfulness interventions, wearables, and digital therapeutics.</div>
-          </div>
-          <div class="grid gap-3 border-b border-white/10 py-5 md:grid-cols-[56px_1.2fr_2fr] md:gap-6">
-            <div class="text-base text-emerald-300">04</div>
-            <div class="text-2xl font-light text-white/90">Nature-Based &amp; Lifestyle Interventions</div>
-            <div class="sans text-sm leading-7 text-white/55">Forest bathing and nature exposure, horticultural therapy, restorative environments, and lifestyle-based mental health promotion.</div>
-          </div>
-          <div class="grid gap-3 border-b border-white/10 py-5 md:grid-cols-[56px_1.2fr_2fr] md:gap-6">
-            <div class="text-base text-emerald-300">05</div>
-            <div class="text-2xl font-light text-white/90">Population Health &amp; Social Determinants</div>
-            <div class="sans text-sm leading-7 text-white/55">Longitudinal cohort research (CHARLS, ELSA), life-course influences, social participation, depression, cognition, and functional health trajectories.</div>
-          </div>
-          <div class="grid gap-3 py-5 md:grid-cols-[56px_1.2fr_2fr] md:gap-6">
-            <div class="text-base text-emerald-300">06</div>
-            <div class="text-2xl font-light text-white/90">Quantitative Methods &amp; Measurement</div>
-            <div class="sans text-sm leading-7 text-white/55">Longitudinal and multilevel modelling, dyadic analysis, causal inference, psychometrics, and physiological biomarkers such as HRV.</div>
-          </div>
+          population health using large longitudinal cohorts and advanced quantitative methods.</p>
+      <div class="areagrid">
+      <div class="acard"><h3>Ageing, Dementia &amp; Caregiving</h3><p>Stress, wellbeing, dyadic processes, behavioural and psychological symptoms of dementia, and evidence-based caregiver support programs.</p></div>
+      <div class="acard"><h3>Intervention Development &amp; Evaluation</h3><p>Randomized controlled trials, feasibility and pilot studies, micro-randomized trials (MRTs), JITAIs, SMART designs, and hybrid effectiveness–implementation designs.</p></div>
+      <div class="acard"><h3>Technology-Enabled Mental Health</h3><p>Immersive virtual reality, VR-based mindfulness, digital mindfulness interventions, wearables, and digital therapeutics.</p></div>
+      <div class="acard"><h3>Nature-Based &amp; Lifestyle Interventions</h3><p>Forest bathing and nature exposure, horticultural therapy, restorative environments, and lifestyle-based mental health promotion.</p></div>
+      <div class="acard"><h3>Population Health &amp; Social Determinants</h3><p>Longitudinal cohort research (CHARLS, ELSA), life-course influences, social participation, depression, cognition, and functional health trajectories.</p></div>
+      <div class="acard"><h3>Quantitative Methods &amp; Measurement</h3><p>Longitudinal and multilevel modelling, dyadic analysis, causal inference, psychometrics, and physiological biomarkers such as HRV.</p></div>
+      </div>
+  </div>
+</section>
+<section id="cv" class="band panel">
+  <div class="wrap reveal">
+    <div class="sechead"><div class="seckicker">Curriculum vitae</div><h2 class="sectitle">Academic history and credentials</h2></div>
+      <div class="cvcols">
+        <div>
+      <div class="cvgroup"><h3>Professional Experience</h3>
+        <div class="cvrow"><div class="date">2024 – Present</div><div><div class="t">Postdoctoral Fellow</div><div class="o">School of Nursing, The Hong Kong Polytechnic University</div></div></div>
+        <div class="cvrow"><div class="date">Oct–Dec 2025</div><div><div class="t">Lecturer (Part-time)</div><div class="o">Saint Francis University — Applied Psychology, HA Professional Diploma in Nursing</div></div></div>
+        <div class="cvrow"><div class="date">2023 – 2024</div><div><div class="t">Research Associate</div><div class="o">Research Centre for Gerontology and Family Studies, PolyU</div></div></div>
+        <div class="cvrow"><div class="date">2016 – 2019</div><div><div class="t">Research Assistant / Project Associate</div><div class="o">School of Nursing PolyU · THEi · HKSYU · EdUHK · APSS PolyU · HKIAPS CUHK · The Chinese YMCA of HK</div></div></div>
+      </div>
+      <div class="cvgroup"><h3>Academic Qualifications</h3>
+        <div class="cvrow"><div class="date">2019 – 2024</div><div><div class="t">PhD in Applied Social Sciences</div><div class="o">The Hong Kong Polytechnic University</div></div></div>
+        <div class="cvrow"><div class="date">2015 – 2016</div><div><div class="t">Master of Applied Psychology</div><div class="o">The Hong Kong Polytechnic University</div><span class="tag">Distinction</span></div></div>
+        <div class="cvrow"><div class="date">2009 – 2014</div><div><div class="t">BA (Hons) in Psychology</div><div class="o">York University, Canada</div></div></div>
+      </div>
+        </div>
+        <div>
+      <div class="cvgroup"><h3>Professional Memberships</h3>
+        <div class="cvrow"><div class="date">Apr 2026 – Present</div><div><div class="t">Registered Psychologist (RP)</div><div class="o">Hong Kong Psychological Society</div></div></div>
+        <div class="cvrow"><div class="date">Mar 2026 – Present</div><div><div class="t">Associate Fellow (AFBPsS)</div><div class="o">British Psychological Society</div></div></div>
+        <div class="cvrow"><div class="date">Jan 2026 – Present</div><div><div class="t">Member (MHKPS)</div><div class="o">Hong Kong Psychological Society</div></div></div>
+        <div class="cvrow"><div class="date">2024 – Present</div><div><div class="t">Chartered Psychologist (CPsychol)</div><div class="o">British Psychological Society</div></div></div>
+        <div class="cvrow"><div class="date">2024 – Present</div><div><div class="t">Certified MoCA Administrator</div><div class="o">MoCA Cognition</div></div></div>
+        <div class="cvrow"><div class="date">2019 – 2020</div><div><div class="t">Graduate Member (MBPsS)</div><div class="o">British Psychological Society</div></div></div>
+        <div class="cvrow"><div class="date">2018 – 2019</div><div><div class="t">Member</div><div class="o">American Psychological Association</div></div></div>
+      </div>
+      <div class="cvgroup"><h3>Awards &amp; Honours</h3>
+        <div class="cvrow"><div class="date">2023/24</div><div><div class="t">Li Po Chun Charitable Trust Fund Scholarship</div><div class="o">Graduate School, PolyU</div></div></div>
+        <div class="cvrow"><div class="date">2024</div><div><div class="t">Annual Best Paper Award</div><div class="o">Department of Applied Social Sciences, PolyU</div></div></div>
+        <div class="cvrow"><div class="date">2019 – 2024</div><div><div class="t">PolyU Research Postgraduate Scholarship</div><div class="o">Department of Applied Social Sciences, PolyU</div></div></div>
+        <div class="cvrow"><div class="date">2016</div><div><div class="t">APSS Scholarship for Outstanding Students</div><div class="o">Department of Applied Social Sciences, PolyU</div></div></div>
+        <div class="cvrow"><div class="date">2012</div><div><div class="t">Honour Roll</div><div class="o">York University</div></div></div>
+      </div>
         </div>
       </div>
-    </section>
-
-    <section id="history" class="bg-[#f1ece3]">
-      <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
-        <div class="sans mb-10 flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
-          <span>Academic History</span>
-          <span class="h-px flex-1 bg-stone-300"></span>
-        </div>
-
-        <div class="grid gap-10 lg:grid-cols-2">
-          <div class="rounded-[28px] border border-stone-200 bg-white p-7 shadow-sm">
-            <h3 class="text-3xl font-light text-slate-900">Professional Experience</h3>
-            <div class="grid gap-2 border-b border-stone-200/80 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">2024 – Present</div><div><div class="sans text-base font-semibold text-slate-900">Postdoctoral Fellow</div><div class="sans mt-1 text-sm leading-6 text-slate-600">School of Nursing, The Hong Kong Polytechnic University</div></div></div>
-            <div class="grid gap-2 border-b border-stone-200/80 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">Oct–Dec 2025</div><div><div class="sans text-base font-semibold text-slate-900">Lecturer (Part-time)</div><div class="sans mt-1 text-sm leading-6 text-slate-600">Saint Francis University — Applied Psychology, HA Professional Diploma in Nursing</div></div></div>
-            <div class="grid gap-2 border-b border-stone-200/80 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">2023 – 2024</div><div><div class="sans text-base font-semibold text-slate-900">Research Associate</div><div class="sans mt-1 text-sm leading-6 text-slate-600">Research Centre for Gerontology and Family Studies, PolyU</div></div></div>
-            <div class="grid gap-2 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">2016 – 2019</div><div><div class="sans text-base font-semibold text-slate-900">Research Assistant / Project Associate</div><div class="sans mt-1 text-sm leading-6 text-slate-600">School of Nursing PolyU · THEi · HKSYU · EdUHK · APSS PolyU · HKIAPS CUHK · The Chinese YMCA of HK</div></div></div>
-
-            <h3 class="mt-10 text-3xl font-light text-slate-900">Academic Qualifications</h3>
-            <div class="grid gap-2 border-b border-stone-200/80 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">2019 – 2024</div><div><div class="sans text-base font-semibold text-slate-900">PhD in Applied Social Sciences</div><div class="sans mt-1 text-sm leading-6 text-slate-600">The Hong Kong Polytechnic University</div></div></div>
-            <div class="grid gap-2 border-b border-stone-200/80 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">2015 – 2016</div><div><div class="sans text-base font-semibold text-slate-900">Master of Applied Psychology</div><div class="sans mt-1 text-sm leading-6 text-slate-600">The Hong Kong Polytechnic University</div><span class="sans mt-3 inline-flex rounded-md bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700">Distinction</span></div></div>
-            <div class="grid gap-2 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">2009 – 2014</div><div><div class="sans text-base font-semibold text-slate-900">BA (Hons) in Psychology</div><div class="sans mt-1 text-sm leading-6 text-slate-600">York University, Canada</div></div></div>
-          </div>
-
-          <div class="rounded-[28px] border border-stone-200 bg-white p-7 shadow-sm">
-            <h3 class="text-3xl font-light text-slate-900">Professional Memberships</h3>
-            <div class="grid gap-2 border-b border-stone-200/80 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">Apr 2026 – Present</div><div><div class="sans text-base font-semibold text-slate-900">Registered Psychologist (RP)</div><div class="sans mt-1 text-sm leading-6 text-slate-600">Hong Kong Psychological Society</div></div></div>
-            <div class="grid gap-2 border-b border-stone-200/80 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">Mar 2026 – Present</div><div><div class="sans text-base font-semibold text-slate-900">Associate Fellow (AFBPsS)</div><div class="sans mt-1 text-sm leading-6 text-slate-600">British Psychological Society</div></div></div>
-            <div class="grid gap-2 border-b border-stone-200/80 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">Jan 2026 – Present</div><div><div class="sans text-base font-semibold text-slate-900">Member (MHKPS)</div><div class="sans mt-1 text-sm leading-6 text-slate-600">Hong Kong Psychological Society</div></div></div>
-            <div class="grid gap-2 border-b border-stone-200/80 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">2024 – Present</div><div><div class="sans text-base font-semibold text-slate-900">Chartered Psychologist (CPsychol)</div><div class="sans mt-1 text-sm leading-6 text-slate-600">British Psychological Society</div></div></div>
-            <div class="grid gap-2 border-b border-stone-200/80 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">2024 – Present</div><div><div class="sans text-base font-semibold text-slate-900">Certified MoCA Administrator</div><div class="sans mt-1 text-sm leading-6 text-slate-600">MoCA Cognition</div></div></div>
-            <div class="grid gap-2 border-b border-stone-200/80 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">2019 – 2020</div><div><div class="sans text-base font-semibold text-slate-900">Graduate Member (MBPsS)</div><div class="sans mt-1 text-sm leading-6 text-slate-600">British Psychological Society</div></div></div>
-            <div class="grid gap-2 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">2018 – 2019</div><div><div class="sans text-base font-semibold text-slate-900">Member</div><div class="sans mt-1 text-sm leading-6 text-slate-600">American Psychological Association</div></div></div>
-
-            <h3 class="mt-10 text-3xl font-light text-slate-900">Awards &amp; Honours</h3>
-            <div class="grid gap-2 border-b border-stone-200/80 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">2023/24</div><div><div class="sans text-base font-semibold text-slate-900">Li Po Chun Charitable Trust Fund Scholarship</div><div class="sans mt-1 text-sm leading-6 text-slate-600">Graduate School, PolyU</div></div></div>
-            <div class="grid gap-2 border-b border-stone-200/80 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">2024</div><div><div class="sans text-base font-semibold text-slate-900">Annual Best Paper Award</div><div class="sans mt-1 text-sm leading-6 text-slate-600">Department of Applied Social Sciences, PolyU</div></div></div>
-            <div class="grid gap-2 border-b border-stone-200/80 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">2019 – 2024</div><div><div class="sans text-base font-semibold text-slate-900">PolyU Research Postgraduate Scholarship</div><div class="sans mt-1 text-sm leading-6 text-slate-600">Department of Applied Social Sciences, PolyU</div></div></div>
-            <div class="grid gap-2 border-b border-stone-200/80 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">2016</div><div><div class="sans text-base font-semibold text-slate-900">APSS Scholarship for Outstanding Students</div><div class="sans mt-1 text-sm leading-6 text-slate-600">Department of Applied Social Sciences, PolyU</div></div></div>
-            <div class="grid gap-2 py-5 sm:grid-cols-[120px_1fr] sm:gap-5"><div class="sans text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-700">2012</div><div><div class="sans text-base font-semibold text-slate-900">Honour Roll</div><div class="sans mt-1 text-sm leading-6 text-slate-600">York University</div></div></div>
-          </div>
+  </div>
+</section>
+<section id="publications" class="band">
+  <div class="wrap reveal">
+    <div class="sechead"><div class="seckicker">Peer-reviewed work</div><h2 class="sectitle">A record of published and ongoing scholarship</h2></div>
+      <p class="pubnote">Asterisk denotes corresponding author.</p>
+      <div class="pubgroup">
+        <div class="pubbar"><h3>In progress</h3><span class="count">14 manuscripts</span></div>
+        <div class="pubpanel">
+        <div class="pub"><p><strong>Tsang, A. P. L.</strong>, &amp; Zhou, J. J. (Submitted). Your past, my mood: Life-course dyadic echoes of childhood adversities on later-life depression in couples. <em>Journal of Social and Personal Relationships</em>.</p><span class="pill sub">Submitted</span></div>
+        <div class="pub"><p>Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Chou, K. L., Zarit, S., Gallagher-Thompson, D., Galante, J., Wong, S. Y. S., Cheung, D. S. K., Leung, A. Y. M., &amp; Chu, L. W. (Under review). Process indicators and treatment response prediction in adaptive interventions for family dementia caregivers. <em>Nursing Open</em>.</p><span class="pill rev">Under Review</span></div>
+        <div class="pub"><p>Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Chou, K. L., Zarit, S., Gallagher-Thompson, D., Galante, J., Wong, S. Y. S., Cheung, D. S. K., Leung, A. Y. M., &amp; Chu, L. W. (Under review). Adaptive psychosocial interventions for family caregivers of people with dementia: A sequential multiple assignment randomized trial. <em>JAMA Network Open</em>.</p><span class="pill rev">Under Review</span></div>
+        <div class="pub"><p>Chu, A. M. Y., Chan, L. S. H., Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Jian, I. Y., &amp; Chou, K. L. (Submitted). A mindfulness-based mobile intervention for stress and sadness reduction among family caregivers of dementia patients: An ecological momentary assessment approach. <em>BMC Psychology</em>.</p><span class="pill sub">Submitted</span></div>
+        <div class="pub"><p>Kor, P. P. K., Chan, K., <strong>Tsang, A. P. L.</strong>, Liu, J. Y. W., Cheung, K., Lai, K. H., Cheung, E. S. P., Tan, L. H. Z., &amp; He, H. C. (Under review). Psychometric validation of a modified v-NOTECHS scale for nursing students following immersive virtual reality simulation. <em>JMIR Nursing</em>.</p><span class="pill rev">Under Review</span></div>
+        <div class="pub"><p>Hu, Y., Lai, K. Y., &amp; <strong>Tsang, A. P. L.*</strong> (Submitted). Will older adults with more children be healthier? Social participation as a moderator in multilevel models of health trajectories. <em>The International Journal of Aging and Human Development</em>.</p><span class="pill sub">Submitted</span></div>
+        <div class="pub"><p>Chan, S. C. Y., <strong>Tsang, A. P. L.</strong>, &amp; Cheung, V. H. M. (Under review). Perceived stereotype threat and prospective memory: The mediating role of memory strategy use in older adults. <em>Geriatrics &amp; Gerontology International</em>.</p><span class="pill rev">Under Review</span></div>
+        <div class="pub"><p><strong>Tsang, A. P. L.*</strong>, Wong, C. C., Chan, S. C. Y., Cheung, V. H. M., Lu, H., &amp; Zuber, S. (Under review). Subjective (but not objective) prospective memory relates to depression, anxiety, and self-rated health in older adulthood: A latent profile analysis. <em>Aging and Mental Health</em>.</p><span class="pill rev">Under Review</span></div>
+        <div class="pub"><p><strong>Tsang, A. P. L.*</strong>, Chan, S. C. Y., &amp; Cheung, V. H. M. (Under review). Trait mindfulness is associated with subjective but not objective prospective memory in community-dwelling older adults: A cross-sectional structural equation modeling study. <em>Memory</em>.</p><span class="pill rev">Under Review</span></div>
+        <div class="pub"><p>Kor, P. P. K., Leung, A. Y. M., Leung, D. Y. P., Cheung, D. S. K., Wang, S. S., <strong>Tsang, A. P. L.</strong>, Lai, D. W. L., &amp; Molassiotis, A. (Under review). Exploring patterns of supportive services utilization among informal caregivers of older adults: A multi-method study. <em>Journal of Applied Gerontology</em>.</p><span class="pill rev">Under Review</span></div>
+        <div class="pub"><p>Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Chu, A. M. Y., Cheung, D. S. K., Zarit, S. H., Xie, H., Qian, M., Tan, K. C., Zheng, Y., &amp; Chou, K. L. (Under review). Exploring receptivity in a mindfulness intervention for dementia carers: A micro-randomized trial. <em>JMIR</em>.</p><span class="pill rev">Under Review</span></div>
+        <div class="pub"><p>Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Liu, J. Y. W., Montayre, J., Leung, A. Y. M., Zhao, I. Y., Wang, S., Scholes, S., &amp; Mak, H. W. (Under review). Cultural engagement and cognitive change over 18 years in the English Longitudinal Study of Ageing. <em>Communication Health</em>.</p><span class="pill rev">Under Review</span></div>
+        <div class="pub"><p>Tan, L. H. Z., <strong>Tsang, A. P. L.</strong>, Liu, X., Tse, W. S., Hui, Y. T., Chan, C., Chan, H. K., Lam, P., To, M. H., Chan, Y. K., Fong, W. Y., Yeng, S. H., Sari, D. W., Takaoka, M., Igarashi, A., &amp; Kor, P. P. K. (Under review). Effects of virtual reality-based horticultural activities on physical and psychological outcomes of older adults: A scoping review. <em>JMIR Aging</em>.</p><span class="pill rev">Under Review</span></div>
+        <div class="pub"><p>Kor, P. P. K., Chan, K., <strong>Tsang, A. P. L.</strong>, Liu, J. Y. W., Cheung, K., Lai, T. K. H., Cheung, E. S. P., Tan, L. H. Z., &amp; He, H. C. (Under review). Comparing the effects of AI-assisted and facilitator-led debriefing on knowledge and non-technical skills in immersive virtual reality simulation in nursing education: A quasi-experimental study. <em>Nurse Education Today</em>.</p><span class="pill rev">Under Review</span></div>
         </div>
       </div>
-    </section>
-
-    <section id="publications" class="bg-stone-50">
-      <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
-        <div class="sans mb-10 flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
-          <span>Publications</span>
-          <span class="h-px flex-1 bg-stone-300"></span>
-        </div>
-        <h2 class="text-4xl font-light text-slate-900 md:text-5xl">Peer-Reviewed Work</h2>
-        <p class="sans mt-3 text-sm text-slate-500">* = corresponding author</p>
-
-        <div class="sans mt-10 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">Submitted / Under Review</div>
-        <div class="mt-3 rounded-[28px] border border-stone-200 bg-white p-6 shadow-sm">
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Chou, K. L., Zarit, S., Gallagher-Thompson, D., Galante, J., Wong, S. Y. S., Cheung, D. S. K., Leung, A. Y. M., &amp; Chu, L. W. (Submitted). Adaptive psychosocial interventions for family caregivers of people with dementia: A sequential multiple assignment randomized trial. <em>JAMA Network Open</em>.</p><span class="sans inline-flex w-fit rounded-md bg-amber-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-amber-800">Submitted</span></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Chu, A. M. Y., Chan, L. S. H., Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Jian, I. Y., &amp; Chou, K. L. (Submitted). Evaluating the effectiveness of a mindfulness-based intervention program for stress and sadness reduction among family caregivers of dementia patients: An ecological momentary assessment approach. <em>Mindfulness</em>.</p><span class="sans inline-flex w-fit rounded-md bg-amber-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-amber-800">Submitted</span></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Kor, P. P. K., Chan, K., <strong>Tsang, A. P. L.</strong>, Liu, J. Y. W., Cheung, K., Lai, K. H., Cheung, E. S. P., Tan, L. H. Z., &amp; He, H. C. (Under review). Psychometric validation of a modified v-NOTECHS scale for nursing students following immersive virtual reality simulation. <em>JMIR Nursing</em>.</p><span class="sans inline-flex w-fit rounded-md bg-amber-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-amber-800">Under Review</span></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Hu, Y., Lai, K. Y., &amp; <strong>Tsang, A. P. L.*</strong> (Submitted). Will older adults with more children be healthier? Social participation as a moderator in multilevel models of health trajectories. <em>Journal of Applied Gerontology</em>.</p><span class="sans inline-flex w-fit rounded-md bg-amber-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-amber-800">Submitted</span></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Chan, S. C. Y., <strong>Tsang, A. P. L.</strong>, &amp; Cheung, V. H. M. (Under review). Perceived stereotype threat and prospective memory: The mediating role of memory strategy use in older adults. <em>Geriatrics &amp; Gerontology International</em>.</p><span class="sans inline-flex w-fit rounded-md bg-amber-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-amber-800">Under Review</span></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700"><strong>Tsang, A. P. L.*</strong>, Wong, C. C., Chan, S. C. Y., Cheung, V. H. M., Lu, H., &amp; Zuber, S. (Under review). Subjective (but not objective) prospective memory relates to depression, anxiety, and self-rated health in older adulthood: A latent profile analysis. <em>Aging and Mental Health</em>.</p><span class="sans inline-flex w-fit rounded-md bg-amber-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-amber-800">Under Review</span></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700"><strong>Tsang, A. P. L.*</strong>, Chan, S. C. Y., &amp; Cheung, V. H. M. (Under review). Trait mindfulness predicts subjective but not objective prospective memory in community-dwelling older adults: A cross-sectional structural equation modelling study. <em>Memory</em>.</p><span class="sans inline-flex w-fit rounded-md bg-amber-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-amber-800">Under Review</span></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Kor, P. P. K., Leung, A. Y. M., Leung, D. Y. P., Cheung, D. S. K., Wang, S. S., <strong>Tsang, A. P. L.</strong>, Lai, D. W. L., &amp; Molassiotis, A. (Under review). Exploring patterns of supportive services utilization among informal caregivers of older adults: A multi-method study. <em>Journal of Applied Gerontology</em>.</p><span class="sans inline-flex w-fit rounded-md bg-amber-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-amber-800">Under Review</span></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Chu, A. M. Y., Cheung, D. S. K., Zarit, S. H., Xie, H., Qian, M., Tan, K. C., Zheng, Y., &amp; Chou, K. L. (Under review). Exploring receptivity in a mindfulness intervention for dementia carers: A micro-randomized trial. <em>JMIR</em>.</p><span class="sans inline-flex w-fit rounded-md bg-amber-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-amber-800">Under Review</span></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Liu, J. Y. W., Montayre, J., Leung, A. Y. M., Zhao, I. Y., Wang, S., Scholes, S., &amp; Mak, H. W. (Under review). Cultural engagement and cognitive change over 18 years in the English Longitudinal Study of Ageing. <em>Communication Health</em>.</p><span class="sans inline-flex w-fit rounded-md bg-amber-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-amber-800">Under Review</span></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Tan, L. H. Z., <strong>Tsang, A. P. L.</strong>, Liu, X., Tse, W. S., Hui, Y. T., Chan, C., Chan, H. K., Lam, P., To, M. H., Chan, Y. K., Fong, W. Y., Yeng, S. H., Sari, D. W., Takaoka, M., Igarashi, A., &amp; Kor, P. P. K. (Under review). Effects of virtual reality-based horticultural activities on physical and psychological outcomes of older adults: A scoping review. <em>JMIR Aging</em>.</p><span class="sans inline-flex w-fit rounded-md bg-amber-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-amber-800">Under Review</span></div>
-          <div class="grid gap-4 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Kor, P. P. K., Chan, K., <strong>Tsang, A. P. L.</strong>, Liu, J. Y. W., Cheung, K., Lai, T. K. H., Cheung, E. S. P., Tan, L. H. Z., &amp; He, H. C. (Under review). Comparing the effects of AI-assisted and facilitator-led debriefing on knowledge and non-technical skills in immersive virtual reality simulation in nursing education: A quasi-experimental study. <em>Nurse Education Today</em>.</p><span class="sans inline-flex w-fit rounded-md bg-amber-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-amber-800">Under Review</span></div>
-        </div>
-
-        <div class="sans mt-10 text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">Published / Accepted</div>
-        <div class="mt-3 rounded-[28px] border border-stone-200 bg-white p-6 shadow-sm">
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Luo, Y., Hu, J., <strong>Tsang, A. P. L.</strong>, &amp; Bai, X. (Accepted). Psychometric properties of the caregiving burden scale for Chinese family caregivers with relatives in nursing homes. <em>Health &amp; Social Care in the Community</em>. (2024 IF: 2.3, SSCI: Q1 in Social Work)</p><span class="sans inline-flex w-fit rounded-md bg-sky-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-sky-700">Accepted</span></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Yu, C. T. K., <strong>Tsang, A. P. L.*</strong>, Chan, K. K. Y., Fung, I. O. C., Ngai, Z. S. Y., Kwok, L. Y. C., Chan, S. K. S., Fung, G. T. F., Law, S. S. Y., Ching, V. W. K., &amp; Kor, P. P. K. (Accepted). Using a virtual reality CAVE–based mindfulness intervention to promote mental well-being in adolescents with anxiety symptoms: A feasibility study. <em>JMIR Formative Research</em>. (2024 IF: 2.1, ESCI: Q3)</p><span class="sans inline-flex w-fit rounded-md bg-sky-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-sky-700">Accepted</span></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Cheung, D. S. K., Zarit, S. H., Xie, H., Qian, M., Tan, K. C., Zhen, Y., Chu, A. M. Y., &amp; Chou, K. L. (Accepted). Developing and testing a brief mindfulness just-in-time adaptive intervention to reduce stress among dementia caregivers: A quasi-experimental study. <em>JMIR Aging</em>. (2024 IF: 4.8, SSCI: Q1 in Gerontology)</p><span class="sans inline-flex w-fit rounded-md bg-sky-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-sky-700">Accepted</span></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Chan, S. C. Y., Huang, Q. L., <strong>Tsang, A. P. L.</strong>, Ho, W. S., Chan, R., Wong, S., &amp; Tsai, M. (2025). Online single-session intervention to foster connection in older adults: Pilot trial. <em>Research on Social Work Practice</em>, 1–12.</p><a href="https://doi.org/10.1177/10497315251404932" target="_blank" rel="noopener noreferrer" class="sans inline-flex w-fit rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-700 hover:text-white">DOI ↗</a></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Lai, D. L. L., &amp; Liu, J. Y. W. (2025). The effectiveness of a hybrid mindfulness-based intervention in reducing stress among informal caregivers of people with dementia: A randomized controlled trial. <em>Gerontologist</em>, 65(12), gnaf281.</p><a href="https://doi.org/10.1093/geront/gnaf281" target="_blank" rel="noopener noreferrer" class="sans inline-flex w-fit rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-700 hover:text-white">DOI ↗</a></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Kor, P. P. K., Tan, H., <strong>Tsang, A. P. L.</strong>, Cheung, K., Cheung, S. P., Montayre, J. R. G., Ko, K. Y., Triastuti, I. A., Widagdo, T. M. M., Prasetyo, Y. C., Amnatsatsue, K., &amp; Kittiteerasack, P. (2025). Student experiences and learning outcomes of an interprofessional and international service-learning program: An exploratory study. <em>BMC Medical Education</em>, 25, 1539.</p><a href="https://doi.org/10.1186/s12909-025-07970-6" target="_blank" rel="noopener noreferrer" class="sans inline-flex w-fit rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-700 hover:text-white">DOI ↗</a></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700"><strong>Tsang, A. P. L.*</strong>, Tan, L. H. Z., Pu, L., Amnatsatsue, K., &amp; Kor, P. P. K. (2025). Cognitive predictors of functional status transitions among older adults with seven-year follow-up: A latent transition analysis. <em>Gerontology</em>.</p><a href="https://doi.org/10.1159/000549061" target="_blank" rel="noopener noreferrer" class="sans inline-flex w-fit rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-700 hover:text-white">DOI ↗</a></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Kor, P. P. K., Chou, K. L., <strong>Tsang, A. P. L.</strong>, Mak, W. W. S., Galante, J., Ho, R. T. H., Wong, S. Y. S., Cheung, D. S. K., Liu, J. Y. W., &amp; Zarit, S. H. (2025). Effects of a closed-loop mindfulness-based program for reducing stress in family caregivers of people with dementia: A study protocol of a randomized controlled trial. <em>BMC Psychology</em>, 13, 681.</p><a href="https://doi.org/10.1186/s40359-025-02919-2" target="_blank" rel="noopener noreferrer" class="sans inline-flex w-fit rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-700 hover:text-white">DOI ↗</a></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700"><strong>Tsang, A. P. L.</strong>, Sun, S. N., Hu, Y., &amp; Zhou, J. J. (2025). Predicting late-life depression trajectories through early-life experiences: Evidence from CHARLS. <em>Aging &amp; Mental Health</em>.</p><a href="https://doi.org/10.1080/13607863.2025.2515177" target="_blank" rel="noopener noreferrer" class="sans inline-flex w-fit rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-700 hover:text-white">DOI ↗</a></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Kor, P. P. K., Liu, J. Y. W., Wong, A. K. C., <strong>Tsang, A. P. L.</strong>, Tan, H. Z., Cheung, D. S. K., Leung, H. K. W., &amp; Wong, F. K. Y. (2025). Effectiveness of a dyadic technology–enhanced home-based horticultural therapy on psychosocial well-being among people with dementia and their family caregivers: Multimethods pilot study. <em>JMIR Aging</em>, 8, e66017.</p><a href="https://doi.org/10.2196/66017" target="_blank" rel="noopener noreferrer" class="sans inline-flex w-fit rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-700 hover:text-white">DOI ↗</a></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700"><strong>Tsang, A. P. L.*</strong>, Lee, C. K., &amp; Chan, S. C. K. (2025). A cross-lagged panel analysis of social activities in the relationship between functional limitations and cognitive functioning: Evidence from CHARLS. <em>Journal of Applied Gerontology</em>, 44(4), 551–560.</p><a href="https://doi.org/10.1177/07334648241282756" target="_blank" rel="noopener noreferrer" class="sans inline-flex w-fit rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-700 hover:text-white">DOI ↗</a></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Kor, P. P. K., Chou, K. L., Zarit, S. H., Galante, J., Chan, W. C., <strong>Tsang, A. P. L.</strong>, Lai, D. L. L., Cheung, D. S. K., Ho, K. H. M., &amp; Liu, J. Y. W. (2024). Effect of a single-session mindfulness-based intervention for reducing stress in family caregivers of people with dementia: Study protocol for a randomized controlled trial. <em>BMC Psychology</em>, 12, 582.</p><a href="https://doi.org/10.1186/s40359-024-02027-7" target="_blank" rel="noopener noreferrer" class="sans inline-flex w-fit rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-700 hover:text-white">DOI ↗</a></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Kor, P. P. K., Yu, C. T. K., Li, Y., <strong>Tsang, A. P. L.</strong>, Tan, L. H. Z., Lam, S. C., Lee, P. H., Liu, J. Y. W., Leung, A. Y. M., &amp; Lee, K. C. (2024). Development and validation of a health literacy scale for family caregivers of older people with chronic illness. <em>BMC Nursing</em>, 23, 447.</p><a href="https://doi.org/10.1186/s12912-024-02057-x" target="_blank" rel="noopener noreferrer" class="sans inline-flex w-fit rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-700 hover:text-white">DOI ↗</a></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700"><strong>Tsang, A. P. L.</strong>, Chan, S. C. K., Lu, H., &amp; Wong, C. C. (2024). Effects of age-based stereotype threat on time-based prospective memory. <em>Frontiers in Psychology</em>, 15, Article 1379160.</p><a href="https://doi.org/10.3389/fpsyg.2024.1379160" target="_blank" rel="noopener noreferrer" class="sans inline-flex w-fit rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-700 hover:text-white">DOI ↗</a></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700"><strong>Tsang, A. P. L.*</strong>, Lu, H., &amp; Lo, H. H. M. (2024). The acute effects of focused attention and open monitoring meditations on prospective memory in older adults. <em>Mindfulness</em>, 15, 19–36.</p><a href="https://doi.org/10.1007/s12671-023-02292-4" target="_blank" rel="noopener noreferrer" class="sans inline-flex w-fit rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-700 hover:text-white">DOI ↗</a></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700"><strong>Tsang, A. P. L.*</strong>, Au, A., &amp; Lo, H. H. M. (2022). Prospective memory training for healthy older adults: A systematic review. <em>Clinical Gerontologist</em>, 45(3), 486–502.</p><a href="https://doi.org/10.1080/07317115.2021.1950253" target="_blank" rel="noopener noreferrer" class="sans inline-flex w-fit rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-700 hover:text-white">DOI ↗</a></div>
-          <div class="grid gap-4 border-b border-stone-200 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Chan, E. A., Tsang, P. L., Ching, S. S. Y., Wong, F. Y., &amp; Lam, W. (2019). Nurses' perspectives on their communication with parents in busy oncology wards: A qualitative study. <em>PLoS ONE</em>, 14(10), Article e0224178.</p><a href="https://doi.org/10.1371/journal.pone.0224178" target="_blank" rel="noopener noreferrer" class="sans inline-flex w-fit rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-700 hover:text-white">DOI ↗</a></div>
-          <div class="grid gap-4 py-5 md:grid-cols-[1fr_auto] md:items-start"><p class="sans text-sm leading-7 text-slate-700">Chan, E. A., Liu, J. Y. W., Fung, K. H. K., Tsang, P. L., &amp; Yuen, J. (2018). Pre-departure preparation and co-curricular activities for students' intercultural exchange: A mixed-methods study. <em>Nurse Education Today</em>, 63, 43–49.</p><a href="https://doi.org/10.1016/j.nedt.2018.01.020" target="_blank" rel="noopener noreferrer" class="sans inline-flex w-fit rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700 transition hover:bg-emerald-700 hover:text-white">DOI ↗</a></div>
+      <div class="pubgroup">
+        <div class="pubbar"><h3>Published &amp; accepted</h3><span class="count">18 articles</span></div>
+        <div class="pubpanel">
+        <div class="pub"><p>Luo, Y., Hu, J., <strong>Tsang, A. P. L.</strong>, &amp; Bai, X. (2026). Psychometric properties of the caregiving burden scale for Chinese family caregivers with relatives in nursing homes. <em>Health &amp; Social Care in the Community</em>, 8148071.</p><a class="pill doi" href="https://doi.org/10.1155/hsc/8148071" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p>Yu, C. T. K., <strong>Tsang, A. P. L.*</strong>, Chan, K. K. Y., Fung, I. O. C., Ngai, Z. S. Y., Kwok, L. Y. C., Chan, S. K. S., Fung, G. T. F., Law, S. S. Y., Ching, V. W. K., &amp; Kor, P. P. K. (2026). Using a virtual reality CAVE–based mindfulness intervention to promote mental well-being in adolescents with anxiety symptoms: A feasibility study. <em>JMIR Formative Research</em>, 10, e91819.</p><a class="pill doi" href="https://doi.org/10.2196/91819" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p>Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Cheung, D. S. K., Zarit, S. H., Xie, H., Qian, M., Tan, K. C., Zhen, Y., Chu, A. M. Y., &amp; Chou, K. L. (2026). Developing and testing a brief mindfulness just-in-time adaptive intervention to reduce stress among dementia caregivers: A quasi-experimental study. <em>JMIR Aging</em>, 9, e87316.</p><a class="pill doi" href="https://doi.org/10.2196/87316" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p>Chan, S. C. Y., Huang, Q. L., <strong>Tsang, A. P. L.</strong>, Ho, W. S., Chan, R., Wong, S., &amp; Tsai, M. (2025). Online single-session intervention to foster connection in older adults: Pilot trial. <em>Research on Social Work Practice</em>, 1–12.</p><a class="pill doi" href="https://doi.org/10.1177/10497315251404932" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p>Kor, P. P. K., <strong>Tsang, A. P. L.</strong>, Lai, D. L. L., &amp; Liu, J. Y. W. (2025). The effectiveness of a hybrid mindfulness-based intervention in reducing stress among informal caregivers of people with dementia: A randomized controlled trial. <em>Gerontologist</em>, 65(12), gnaf281.</p><a class="pill doi" href="https://doi.org/10.1093/geront/gnaf281" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p>Kor, P. P. K., Tan, H., <strong>Tsang, A. P. L.</strong>, Cheung, K., Cheung, S. P., Montayre, J. R. G., Ko, K. Y., Triastuti, I. A., Widagdo, T. M. M., Prasetyo, Y. C., Amnatsatsue, K., &amp; Kittiteerasack, P. (2025). Student experiences and learning outcomes of an interprofessional and international service-learning program: An exploratory study. <em>BMC Medical Education</em>, 25, 1539.</p><a class="pill doi" href="https://doi.org/10.1186/s12909-025-07970-6" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p><strong>Tsang, A. P. L.*</strong>, Tan, L. H. Z., Pu, L., Amnatsatsue, K., &amp; Kor, P. P. K. (2025). Cognitive predictors of functional status transitions among older adults with seven-year follow-up: A latent transition analysis. <em>Gerontology</em>.</p><a class="pill doi" href="https://doi.org/10.1159/000549061" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p>Kor, P. P. K., Chou, K. L., <strong>Tsang, A. P. L.</strong>, Mak, W. W. S., Galante, J., Ho, R. T. H., Wong, S. Y. S., Cheung, D. S. K., Liu, J. Y. W., &amp; Zarit, S. H. (2025). Effects of a closed-loop mindfulness-based program for reducing stress in family caregivers of people with dementia: A study protocol of a randomized controlled trial. <em>BMC Psychology</em>, 13, 681.</p><a class="pill doi" href="https://doi.org/10.1186/s40359-025-02919-2" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p><strong>Tsang, A. P. L.</strong>, Sun, S. N., Hu, Y., &amp; Zhou, J. J. (2025). Predicting late-life depression trajectories through early-life experiences: Evidence from CHARLS. <em>Aging &amp; Mental Health</em>.</p><a class="pill doi" href="https://doi.org/10.1080/13607863.2025.2515177" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p>Kor, P. P. K., Liu, J. Y. W., Wong, A. K. C., <strong>Tsang, A. P. L.</strong>, Tan, H. Z., Cheung, D. S. K., Leung, H. K. W., &amp; Wong, F. K. Y. (2025). Effectiveness of a dyadic technology–enhanced home-based horticultural therapy on psychosocial well-being among people with dementia and their family caregivers: Multimethods pilot study. <em>JMIR Aging</em>, 8, e66017.</p><a class="pill doi" href="https://doi.org/10.2196/66017" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p><strong>Tsang, A. P. L.*</strong>, Lee, C. K., &amp; Chan, S. C. K. (2025). A cross-lagged panel analysis of social activities in the relationship between functional limitations and cognitive functioning: Evidence from CHARLS. <em>Journal of Applied Gerontology</em>, 44(4), 551–560.</p><a class="pill doi" href="https://doi.org/10.1177/07334648241282756" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p>Kor, P. P. K., Chou, K. L., Zarit, S. H., Galante, J., Chan, W. C., <strong>Tsang, A. P. L.</strong>, Lai, D. L. L., Cheung, D. S. K., Ho, K. H. M., &amp; Liu, J. Y. W. (2024). Effect of a single-session mindfulness-based intervention for reducing stress in family caregivers of people with dementia: Study protocol for a randomized controlled trial. <em>BMC Psychology</em>, 12, 582.</p><a class="pill doi" href="https://doi.org/10.1186/s40359-024-02027-7" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p>Kor, P. P. K., Yu, C. T. K., Li, Y., <strong>Tsang, A. P. L.</strong>, Tan, L. H. Z., Lam, S. C., Lee, P. H., Liu, J. Y. W., Leung, A. Y. M., &amp; Lee, K. C. (2024). Development and validation of a health literacy scale for family caregivers of older people with chronic illness. <em>BMC Nursing</em>, 23, 447.</p><a class="pill doi" href="https://doi.org/10.1186/s12912-024-02057-x" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p><strong>Tsang, A. P. L.</strong>, Chan, S. C. K., Lu, H., &amp; Wong, C. C. (2024). Effects of age-based stereotype threat on time-based prospective memory. <em>Frontiers in Psychology</em>, 15, Article 1379160.</p><a class="pill doi" href="https://doi.org/10.3389/fpsyg.2024.1379160" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p><strong>Tsang, A. P. L.*</strong>, Lu, H., &amp; Lo, H. H. M. (2024). The acute effects of focused attention and open monitoring meditations on prospective memory in older adults. <em>Mindfulness</em>, 15, 19–36.</p><a class="pill doi" href="https://doi.org/10.1007/s12671-023-02292-4" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p><strong>Tsang, A. P. L.*</strong>, Au, A., &amp; Lo, H. H. M. (2022). Prospective memory training for healthy older adults: A systematic review. <em>Clinical Gerontologist</em>, 45(3), 486–502.</p><a class="pill doi" href="https://doi.org/10.1080/07317115.2021.1950253" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p>Chan, E. A., Tsang, P. L., Ching, S. S. Y., Wong, F. Y., &amp; Lam, W. (2019). Nurses' perspectives on their communication with parents in busy oncology wards: A qualitative study. <em>PLoS ONE</em>, 14(10), Article e0224178.</p><a class="pill doi" href="https://doi.org/10.1371/journal.pone.0224178" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
+        <div class="pub"><p>Chan, E. A., Liu, J. Y. W., Fung, K. H. K., Tsang, P. L., &amp; Yuen, J. (2018). Pre-departure preparation and co-curricular activities for students' intercultural exchange: A mixed-methods study. <em>Nurse Education Today</em>, 63, 43–49.</p><a class="pill doi" href="https://doi.org/10.1016/j.nedt.2018.01.020" target="_blank" rel="noopener noreferrer">DOI &#8599;</a></div>
         </div>
       </div>
-    </section>
-
-    <section id="grants" class="bg-[#e8e1d6]">
-      <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
-        <div class="sans mb-10 flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
-          <span>Research Funding</span>
-          <span class="h-px flex-1 bg-stone-300"></span>
-        </div>
-        <h2 class="text-4xl font-light text-slate-900 md:text-5xl">Grants &amp; Funding</h2>
-
-        <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          <div class="rounded-[28px] border border-stone-200 bg-white p-7 shadow-sm transition hover:-translate-y-1">
-            <div class="text-3xl font-light text-emerald-700">HKD $500,000</div>
-            <div class="sans mt-4 text-lg font-semibold leading-7 text-slate-900">Community-based Healthcare Support Project for Elderly at Sha Ta Areas</div>
-            <div class="sans mt-3 text-sm leading-6 text-slate-500">HKJC (in collaboration with YWCA) · 2025–2027</div>
-            <span class="sans mt-4 inline-flex rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700">Co-Investigator</span>
-          </div>
-          <div class="rounded-[28px] border border-stone-200 bg-white p-7 shadow-sm transition hover:-translate-y-1">
-            <div class="text-3xl font-light text-emerald-700">HKD $100,000</div>
-            <div class="sans mt-4 text-lg font-semibold leading-7 text-slate-900">Mental health and everyday prospective memory in older adults: A cross-sectional survey study</div>
-            <div class="sans mt-3 text-sm leading-6 text-slate-500">Institutional Development Grant, Saint Francis University · 2024–2025</div>
-            <span class="sans mt-4 inline-flex rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700">Co-Investigator</span>
-          </div>
-          <div class="rounded-[28px] border border-stone-200 bg-white p-7 shadow-sm transition hover:-translate-y-1">
-            <div class="text-3xl font-light text-emerald-700">HKD $90,000</div>
-            <div class="sans mt-4 text-lg font-semibold leading-7 text-slate-900">Using mindfulness with immersive virtual reality cave experience in promoting mental well-being</div>
-            <div class="sans mt-3 text-sm leading-6 text-slate-500">Donation (in collaboration with Friends of Scouting) · 2024–2025</div>
-            <span class="sans mt-4 inline-flex rounded-md bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-700">Co-PI</span>
-          </div>
-        </div>
+  </div>
+</section>
+<section id="grants" class="band panel2">
+  <div class="wrap reveal">
+    <div class="sechead"><div class="seckicker">Research funding</div><h2 class="sectitle">Grants and awarded support</h2></div>
+      <div class="grantgrid">
+        <div class="gcard"><div class="amt">HKD $500,000</div><div class="gt">Community-based Healthcare Support Project for Elderly at Sha Ta Areas</div><div class="gm">HKJC (in collaboration with YWCA) · 2025–2027</div><div class="role"><span>Co-Investigator</span></div></div>
+        <div class="gcard"><div class="amt">HKD $100,000</div><div class="gt">Mental health and everyday prospective memory in older adults: A cross-sectional survey study</div><div class="gm">Institutional Development Grant, Saint Francis University · 2024–2025</div><div class="role"><span>Co-Investigator</span></div></div>
+        <div class="gcard"><div class="amt">HKD $90,000</div><div class="gt">Using mindfulness with immersive virtual reality cave experience in promoting mental well-being</div><div class="gm">Donation (in collaboration with Friends of Scouting) · 2024–2025</div><div class="role"><span>Co-PI</span></div></div>
       </div>
-    </section>
-
-    <section id="media" class="bg-stone-50">
-      <div class="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
-        <div class="sans mb-10 flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">
-          <span>Media &amp; Service</span>
-          <span class="h-px flex-1 bg-stone-300"></span>
-        </div>
-
-        <div class="grid gap-10 lg:grid-cols-2">
-          <div>
-            <h3 class="text-3xl font-light text-slate-900 mb-6">Media Coverage</h3>
-            <div class="rounded-[28px] border border-stone-200 bg-white p-6 shadow-sm flex flex-col gap-4">
-              <div class="border-b border-stone-200 pb-4">
-                <a href="https://topick.hket.com/article/4070580/" target="_blank" rel="noopener noreferrer" class="sans text-sm font-semibold text-slate-900 hover:text-emerald-700 transition leading-6">編織社區守護網打破青少年精神健康「三不」困境 ↗</a>
-                <div class="sans mt-1 text-xs text-slate-500">Topick HKET · January 2026</div>
-              </div>
-              <div>
-                <a href="https://scienmag.com/exploring-global-impact-of-interprofessional-service-learning/" target="_blank" rel="noopener noreferrer" class="sans text-sm font-semibold text-slate-900 hover:text-emerald-700 transition leading-6">Exploring global impact of interprofessional service learning ↗</a>
-                <div class="sans mt-1 text-xs text-slate-500">Scienmag · November 2025</div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <h3 class="text-3xl font-light text-slate-900 mb-6">Ad Hoc Reviewer</h3>
-            <div class="rounded-[28px] border border-stone-200 bg-white p-6 shadow-sm">
-              <p class="sans text-sm leading-7 text-slate-600">European Journal of Investigation in Health, Psychology and Education · Journal of Applied Gerontology · Journal of Multidisciplinary Healthcare · Mindfulness · Neuroscience Insights · PLoS ONE · Psychology Research and Behavior Management · The Journals of Gerontology, Series B: Psychological Sciences and Social Sciences</p>
-            </div>
-          </div>
-        </div>
+  </div>
+</section>
+<section id="media" class="band">
+  <div class="wrap reveal">
+    <div class="sechead"><div class="seckicker">In the press and in service</div><h2 class="sectitle">Coverage and peer review</h2></div>
+      <div class="ms">
+        <div><h3 class="subh">Media coverage</h3><div class="mcard">
+          <div class="mediaitem"><a href="https://topick.hket.com/article/4070580/" target="_blank" rel="noopener noreferrer">編織社區守護網打破青少年精神健康「三不」困境 &#8599;</a><div class="src">Topick HKET · January 2026</div></div>
+          <div class="mediaitem"><a href="https://scienmag.com/exploring-global-impact-of-interprofessional-service-learning/" target="_blank" rel="noopener noreferrer">Exploring global impact of interprofessional service learning &#8599;</a><div class="src">Scienmag · November 2025</div></div>
+        </div></div>
+        <div><h3 class="subh">Ad hoc reviewer</h3><p class="reviewers">European Journal of Investigation in Health, Psychology and Education<span class="sep">·</span>Journal of Applied Gerontology<span class="sep">·</span>Journal of Multidisciplinary Healthcare<span class="sep">·</span>Mindfulness<span class="sep">·</span>Neuroscience Insights<span class="sep">·</span>PLoS ONE<span class="sep">·</span>Psychology Research and Behavior Management<span class="sep">·</span>The Journals of Gerontology, Series B: Psychological Sciences and Social Sciences</p></div>
       </div>
-    </section>
-
-    <section id="contact" class="bg-slate-950">
-      <div class="mx-auto max-w-4xl px-6 py-20 text-center lg:px-10 lg:py-24">
-        <div class="sans mb-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-300">Get in Touch</div>
-        <h2 class="text-5xl font-light leading-tight text-white md:text-6xl">
-          Open to collaboration<br>
-          <em>&amp; new opportunities</em>
-        </h2>
-        <p class="sans mx-auto mt-6 max-w-2xl text-sm leading-8 text-white/60 md:text-base">
-          I welcome enquiries regarding research collaborations, joint grants, academic positions, and speaking engagements in gerontology,
-          digital health, and psychological intervention science.
-        </p>
-        <div class="sans mt-8 flex flex-wrap justify-center gap-3">
-          <a href="mailto:alextsang22@icloud.com" class="rounded-xl bg-emerald-700 px-5 py-3 text-sm font-medium text-white transition hover:bg-emerald-800">alextsang22@icloud.com</a>
-          <a href="https://orcid.org/0000-0003-2919-1587" target="_blank" rel="noopener noreferrer" class="rounded-xl border border-white/20 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/10">ORCID Profile</a>
-          <a href="https://alextsang22.github.io/personal/Tsang%20Pak%20Lik%20(Alex)%27s%20CV%20v12.5.docx" class="rounded-xl border border-white/20 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/10">Download CV</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="sans bg-[#0d1017] px-6 py-5 text-xs text-white/35 lg:px-10">
-    <div class="mx-auto flex max-w-7xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-      <span>© 2026 Alex Pak Lik Tsang · School of Nursing, PolyU</span>
-      <span>PhD · CPsychol · AFBPsS · RP (HKPS) · MHKPS</span>
+  </div>
+</section>
+<section id="contact" class="band contact">
+  <div class="wrap reveal">
+    <div class="sechead"><div class="seckicker">Get in touch</div><h2 class="sectitle">Open to collaboration and new opportunities</h2></div>
+    <p class="copy">I welcome enquiries regarding research collaborations, joint grants, academic positions, and speaking engagements in gerontology,
+          digital health, and psychological intervention science.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:alextsang22@icloud.com">alextsang22@icloud.com</a>
+      <a class="btn ghost" href="https://orcid.org/0000-0003-2919-1587" target="_blank" rel="noopener noreferrer">ORCID profile</a>
     </div>
-  </footer>
+  </div>
+</section>
+</main>
+<footer class="site">
+  <div class="row">
+    <span class="serif">&copy; 2026 Alex Pak Lik Tsang</span>
+    <span>PhD &middot; CPsychol &middot; AFBPsS &middot; RP (HKPS) &middot; MHKPS</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:0.08,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
 </body>
 </html>
